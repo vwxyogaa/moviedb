@@ -13,6 +13,7 @@ class HomeViewModel: BaseViewModel {
     private let homeUseCase: HomeUseCaseProtocol
     
     private let _nowPlayings = BehaviorRelay<[TMDB.Results]?>(value: nil)
+    private let _populars = BehaviorRelay<[TMDB.Results]?>(value: nil)
     
     // MARK: - Pagination
     // now playing
@@ -21,10 +22,17 @@ class HomeViewModel: BaseViewModel {
     private var nowPlayingPage = 1
     private var nowPlayingCanLoadNextPage = false
     
+    // popular
+    private var popularResults = [TMDB.Results]()
+    private var popularResultsCount = 0
+    private var popularPage = 1
+    private var popularCanLoadNextPage = false
+    
     init(homeUseCase: HomeUseCaseProtocol) {
         self.homeUseCase = homeUseCase
         super.init()
         getNowPlaying()
+        getPopular()
     }
     
     func refresh() {
@@ -32,7 +40,12 @@ class HomeViewModel: BaseViewModel {
         nowPlayingResultsCount = 0
         nowPlayingPage = 1
         
+        popularResults = []
+        popularResultsCount = 0
+        popularPage = 1
+        
         getNowPlaying()
+        getPopular()
     }
 }
 
@@ -75,6 +88,50 @@ extension HomeViewModel {
             if nowPlayingCount - 2 == index {
                 nowPlayingCanLoadNextPage = true
                 getNowPlaying()
+            }
+        }
+    }
+}
+
+// MARK: - Popular
+extension HomeViewModel {
+    var populars: Driver<[TMDB.Results]?> {
+        return _populars.asDriver()
+    }
+    
+    var popularCount: Int {
+        return _populars.value?.count ?? 0
+    }
+    
+    func popular(at index: Int) -> TMDB.Results? {
+        return _populars.value?[safe: index]
+    }
+    
+    func getPopular() {
+        self._isLoading.accept(true)
+        homeUseCase.getPopular(page: popularPage)
+            .observe(on: MainScheduler.instance)
+            .subscribe { result in
+                self.popularResults.append(contentsOf: result.results ?? [])
+                self.popularResultsCount += result.results?.count ?? 0
+                if self.popularResults.count == self.popularResultsCount {
+                    self.popularPage += 1
+                    self.popularCanLoadNextPage = false
+                    self._populars.accept(self.popularResults)
+                }
+            } onError: { error in
+                self._errorMessage.accept(error.localizedDescription)
+            } onCompleted: {
+                self._isLoading.accept(false)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func loadPopularNextPage(index: Int) {
+        if !popularCanLoadNextPage {
+            if popularCount - 2 == index {
+                popularCanLoadNextPage = true
+                getPopular()
             }
         }
     }

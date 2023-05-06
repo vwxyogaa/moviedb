@@ -9,6 +9,7 @@ import RxSwift
 
 protocol HomeUseCaseProtocol {
     func getNowPlaying(page: Int) -> Observable<TMDB>
+    func getPopular(page: Int) -> Observable<TMDB>
 }
 
 final class HomeUseCase: HomeUseCaseProtocol {
@@ -20,5 +21,9 @@ final class HomeUseCase: HomeUseCaseProtocol {
     
     func getNowPlaying(page: Int) -> Observable<TMDB> {
         return self.repository.getNowPlaying(page: page)
+    }
+    
+    func getPopular(page: Int) -> Observable<TMDB> {
+        return self.repository.getPopular(page: page)
     }
 }

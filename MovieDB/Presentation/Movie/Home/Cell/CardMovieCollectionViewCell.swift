@@ -21,7 +21,7 @@ class CardMovieCollectionViewCell: UICollectionViewCell {
         containerView.layer.masksToBounds = true
     }
     
-    func configureContent(nowPlaying: TMDB.Results?) {
-        self.posterPathImageView.loadImage(uri: nowPlaying?.posterPathImage)
+    func configureContent(content: TMDB.Results?) {
+        self.posterPathImageView.loadImage(uri: content?.posterPathImage)
     }
 }

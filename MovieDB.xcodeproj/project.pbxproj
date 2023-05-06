@@ -219,8 +219,8 @@
 		E117C7B02A065E2F00B9EA69 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				E117C7D22A06672700B9EA69 /* Model */,
 				E117C7B22A065E4600B9EA69 /* RemoteDataSource.swift */,
-				E117C7C92A0661B900B9EA69 /* AttributeImages.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -267,6 +267,14 @@
 				E117C7CE2A06623300B9EA69 /* TTGSnackbar.swift */,
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		E117C7D22A06672700B9EA69 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E117C7C92A0661B900B9EA69 /* AttributeImages.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E11E17E52A056705004DEDC7 = {

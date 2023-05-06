@@ -15,6 +15,7 @@
                 <outlet property="nowPlayingCollectionViewHeight" destination="RXM-9b-sqM" id="ajJ-SY-TLi"/>
                 <outlet property="popularCollectionView" destination="fOU-4U-jUm" id="p3p-cj-AVH"/>
                 <outlet property="popularCollectionViewHeight" destination="b8h-2m-4TX" id="VRn-Lg-c54"/>
+                <outlet property="scrollView" destination="8wb-uA-1A2" id="9jQ-iM-ycU"/>
                 <outlet property="upcomingCollectionView" destination="Cld-VG-6Oo" id="UtZ-77-C7C"/>
                 <outlet property="upcomingCollectionViewHeight" destination="akT-5J-Ifs" id="XrU-9p-0DL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
