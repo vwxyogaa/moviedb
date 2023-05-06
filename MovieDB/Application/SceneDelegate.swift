@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.backgroundColor = .systemBackground
         
         let tabController = window?.rootViewController as? UITabBarController
-        tabController?.tabBar.backgroundColor = .lightGray
+        tabController?.tabBar.backgroundColor = .systemGray4
         tabController?.tabBar.tintColor = .black
     }
     
