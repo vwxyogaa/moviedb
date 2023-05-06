@@ -10,6 +10,7 @@ import RxSwift
 
 final class RemoteDataSource {
     private let urlMovie = Constants.baseMovieUrl + Constants.moviePath
+    private let urlSearch = Constants.baseMovieUrl + Constants.searchPath
     
     func getNowPlaying(page: Int) -> Observable<TMDB> {
         let url = URL(string: urlMovie + "/now_playing?page=\(page)")!
@@ -38,6 +39,12 @@ final class RemoteDataSource {
     func getReviews(id: Int) -> Observable<Reviews> {
         let url = URL(string: urlMovie + "/\(id)/reviews")!
         let data: Observable<Reviews> = APIManager.shared.executeQuery(url: url, method: .get)
+        return data
+    }
+    
+    func search(query: String?) -> Observable<TMDB> {
+        let url = URL(string: urlSearch + "/movie?query=\(query ?? "")") ?? URL(fileURLWithPath: "")
+        let data: Observable<TMDB> = APIManager.shared.executeQuery(url: url, method: .get)
         return data
     }
 }

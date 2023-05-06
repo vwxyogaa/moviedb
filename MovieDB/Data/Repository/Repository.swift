@@ -15,6 +15,7 @@ protocol RepositoryProtocol {
     func getUpcoming(page: Int) -> Observable<TMDB>
     func getDetail(id: Int) -> Observable<Movie>
     func getReviews(id: Int) -> Observable<Reviews>
+    func search(query: String?) -> Observable<TMDB>
 }
 
 final class Repository: NSObject {
@@ -50,5 +51,9 @@ extension Repository: RepositoryProtocol {
     
     func getReviews(id: Int) -> Observable<Reviews> {
         return remote.getReviews(id: id)
+    }
+    
+    func search(query: String?) -> Observable<TMDB> {
+        return remote.search(query: query)
     }
 }
