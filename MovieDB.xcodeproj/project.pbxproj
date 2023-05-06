@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		E117C7902A0655B800B9EA69 /* CardMovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E117C78E2A0655B800B9EA69 /* CardMovieCollectionViewCell.swift */; };
 		E117C7912A0655B800B9EA69 /* CardMovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E117C78F2A0655B800B9EA69 /* CardMovieCollectionViewCell.xib */; };
+		E117C7942A065AF500B9EA69 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E117C7932A065AF500B9EA69 /* Alamofire */; };
+		E117C7972A065B0D00B9EA69 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E117C7962A065B0D00B9EA69 /* Kingfisher */; };
+		E117C79A2A065B4900B9EA69 /* netfox in Frameworks */ = {isa = PBXBuildFile; productRef = E117C7992A065B4900B9EA69 /* netfox */; };
+		E117C79D2A065B7000B9EA69 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E117C79C2A065B7000B9EA69 /* RxCocoa */; };
+		E117C79F2A065B7000B9EA69 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E117C79E2A065B7000B9EA69 /* RxSwift */; };
+		E117C7A22A065C8C00B9EA69 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E117C7A12A065C8C00B9EA69 /* Realm */; };
+		E117C7A42A065C8C00B9EA69 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E117C7A32A065C8C00B9EA69 /* RealmSwift */; };
 		E11E17F22A056705004DEDC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11E17F12A056705004DEDC7 /* AppDelegate.swift */; };
 		E11E17F42A056705004DEDC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11E17F32A056705004DEDC7 /* SceneDelegate.swift */; };
 		E11E17FC2A056705004DEDC7 /* MovieDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E11E17FA2A056705004DEDC7 /* MovieDB.xcdatamodeld */; };
@@ -68,6 +75,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E117C7A22A065C8C00B9EA69 /* Realm in Frameworks */,
+				E117C7972A065B0D00B9EA69 /* Kingfisher in Frameworks */,
+				E117C7A42A065C8C00B9EA69 /* RealmSwift in Frameworks */,
+				E117C7942A065AF500B9EA69 /* Alamofire in Frameworks */,
+				E117C79F2A065B7000B9EA69 /* RxSwift in Frameworks */,
+				E117C79D2A065B7000B9EA69 /* RxCocoa in Frameworks */,
+				E117C79A2A065B4900B9EA69 /* netfox in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +239,15 @@
 			dependencies = (
 			);
 			name = MovieDB;
+			packageProductDependencies = (
+				E117C7932A065AF500B9EA69 /* Alamofire */,
+				E117C7962A065B0D00B9EA69 /* Kingfisher */,
+				E117C7992A065B4900B9EA69 /* netfox */,
+				E117C79C2A065B7000B9EA69 /* RxCocoa */,
+				E117C79E2A065B7000B9EA69 /* RxSwift */,
+				E117C7A12A065C8C00B9EA69 /* Realm */,
+				E117C7A32A065C8C00B9EA69 /* RealmSwift */,
+			);
 			productName = MovieDB;
 			productReference = E11E17EE2A056705004DEDC7 /* MovieDB.app */;
 			productType = "com.apple.product-type.application";
@@ -297,6 +320,13 @@
 				Base,
 			);
 			mainGroup = E11E17E52A056705004DEDC7;
+			packageReferences = (
+				E117C7922A065AF500B9EA69 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				E117C7952A065B0D00B9EA69 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				E117C7982A065B4900B9EA69 /* XCRemoteSwiftPackageReference "netfox" */,
+				E117C79B2A065B7000B9EA69 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				E117C7A02A065C8C00B9EA69 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = E11E17EF2A056705004DEDC7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -694,6 +724,87 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E117C7922A065AF500B9EA69 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		E117C7952A065B0D00B9EA69 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		E117C7982A065B4900B9EA69 /* XCRemoteSwiftPackageReference "netfox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kasketis/netfox";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		E117C79B2A065B7000B9EA69 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		E117C7A02A065C8C00B9EA69 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E117C7932A065AF500B9EA69 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E117C7922A065AF500B9EA69 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		E117C7962A065B0D00B9EA69 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E117C7952A065B0D00B9EA69 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		E117C7992A065B4900B9EA69 /* netfox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E117C7982A065B4900B9EA69 /* XCRemoteSwiftPackageReference "netfox" */;
+			productName = netfox;
+		};
+		E117C79C2A065B7000B9EA69 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E117C79B2A065B7000B9EA69 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		E117C79E2A065B7000B9EA69 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E117C79B2A065B7000B9EA69 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		E117C7A12A065C8C00B9EA69 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E117C7A02A065C8C00B9EA69 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		E117C7A32A065C8C00B9EA69 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E117C7A02A065C8C00B9EA69 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E11E17FA2A056705004DEDC7 /* MovieDB.xcdatamodeld */ = {
