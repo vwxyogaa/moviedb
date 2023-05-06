@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var nowPlayingCollectionView: UICollectionView!
@@ -15,10 +16,14 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var upcomingCollectionView: UICollectionView!
     @IBOutlet weak var upcomingCollectionViewHeight: NSLayoutConstraint!
     
+    private let disposeBag = DisposeBag()
+    var viewModel: HomeViewModel!
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
+        initObserver()
     }
     
     override func viewDidLayoutSubviews() {
@@ -32,6 +37,20 @@ class HomeViewController: UIViewController {
     private func configureViews() {
         configureNavBar()
         configureCollectionViews()
+    }
+    
+    private func initObserver() {
+        viewModel.isLoading.drive(onNext: { [weak self] isLoading in
+            self?.manageLoadingActivity(isLoading: isLoading)
+        }).disposed(by: disposeBag)
+        
+        viewModel.errorMessage.drive(onNext: { [weak self] errorMessage in
+            self?.showErrorSnackBar(message: errorMessage)
+        }).disposed(by: disposeBag)
+        
+        viewModel.nowPlayings.drive(onNext: { [weak self] _ in
+            self?.nowPlayingCollectionView.reloadData()
+        }).disposed(by: disposeBag)
     }
     
     private func configureNavBar() {
@@ -68,7 +87,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case nowPlayingCollectionView:
-            return 5
+            return viewModel.nowPlayingCount
         case popularCollectionView:
             return 5
         case upcomingCollectionView:
@@ -82,6 +101,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         switch collectionView {
         case nowPlayingCollectionView:
             guard let cell = nowPlayingCollectionView.dequeueReusableCell(withReuseIdentifier: "CardMovieCollectionViewCell", for: indexPath) as? CardMovieCollectionViewCell else { return UICollectionViewCell() }
+            let nowPlaying = viewModel.nowPlaying(at: indexPath.row)
+            cell.configureContent(nowPlaying: nowPlaying)
+            viewModel.loadNowPlayingNextPage(index: indexPath.row)
             return cell
         case popularCollectionView:
             guard let cell = popularCollectionView.dequeueReusableCell(withReuseIdentifier: "CardMovieCollectionViewCell", for: indexPath) as? CardMovieCollectionViewCell else { return UICollectionViewCell() }

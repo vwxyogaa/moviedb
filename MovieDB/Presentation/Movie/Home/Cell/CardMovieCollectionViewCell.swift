@@ -19,7 +19,9 @@ class CardMovieCollectionViewCell: UICollectionViewCell {
     private func configureViews() {
         containerView.layer.cornerRadius = 5
         containerView.layer.masksToBounds = true
-        
-        posterPathImageView.backgroundColor = .purple
+    }
+    
+    func configureContent(nowPlaying: TMDB.Results?) {
+        self.posterPathImageView.loadImage(uri: nowPlaying?.posterPathImage)
     }
 }
