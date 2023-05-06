@@ -10,7 +10,6 @@ import RxSwift
 
 class DetailViewController: UIViewController {
     @IBOutlet weak var backdropImageView: UIImageView!
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var categoriesLabel: UILabel!
@@ -59,6 +58,10 @@ class DetailViewController: UIViewController {
             self?.reviewsCollectionView.reloadData()
         }).disposed(by: disposeBag)
         
+        viewModel.isSaved.drive(onNext: { [weak self] isSaved in
+            self?.updateSavedButton(isSaved)
+        }).disposed(by: disposeBag)
+        
         viewModel.isLoading.drive(onNext: { [weak self] isLoading in
             self?.manageLoadingActivity(isLoading: isLoading)
         }).disposed(by: disposeBag)
@@ -66,13 +69,13 @@ class DetailViewController: UIViewController {
         viewModel.errorMessage.drive(onNext: { [weak self] errorMessage in
             self?.showErrorSnackBar(message: errorMessage)
         }).disposed(by: disposeBag)
-        
     }
     
     private func configureData() {
         if let id = id {
             viewModel.getDetail(id: id)
             viewModel.getReviews(id: id)
+            viewModel.checkMovieInCollection(id: id)
         }
     }
     
@@ -113,10 +116,33 @@ class DetailViewController: UIViewController {
         self.overviewLabel.text = movie?.overview
     }
     
+    private func updateSavedButton(_ isSaved: Bool) {
+        if isSaved {
+            saveButton.tag = 1
+            saveButton.setTitle("", for: .normal)
+            saveButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            saveButton.tintColor = .red
+        } else {
+            saveButton.tag = 0
+            saveButton.setTitle("", for: .normal)
+            saveButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            saveButton.tintColor = .black
+        }
+    }
+    
     // MARK: - Action
     @objc
+    private func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
     private func saveButtonTapped(_ sender: UIButton) {
-        print("save button tapped")
+        if sender.tag == 0 {
+            self.viewModel.addToCollection()
+        } else {
+            self.viewModel.deleteFromCollection()
+        }
     }
 }
 

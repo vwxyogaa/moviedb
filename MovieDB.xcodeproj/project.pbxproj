@@ -51,6 +51,14 @@
 		E1FC6B8E2A06A3FE00078D99 /* UICollectionView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC6B8D2A06A3FE00078D99 /* UICollectionView+Ext.swift */; };
 		E1FC6B912A06AD2200078D99 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC6B8F2A06AD2200078D99 /* SearchViewController.swift */; };
 		E1FC6B922A06AD2200078D99 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1FC6B902A06AD2200078D99 /* SearchViewController.xib */; };
+		E1FC6B942A06B1FE00078D99 /* LocaleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC6B932A06B1FE00078D99 /* LocaleDataSource.swift */; };
+		E1FC6B972A06B29100078D99 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E1FC6B962A06B29100078D99 /* Realm */; };
+		E1FC6B992A06B29100078D99 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E1FC6B982A06B29100078D99 /* RealmSwift */; };
+		E1FC6B9B2A06B33400078D99 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC6B9A2A06B33400078D99 /* Utilities.swift */; };
+		E1FC6B9E2A06B5CD00078D99 /* MyMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC6B9D2A06B5CD00078D99 /* MyMovieViewModel.swift */; };
+		E1FC6BA02A06B61500078D99 /* ObjMovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC6B9F2A06B61500078D99 /* ObjMovieModel.swift */; };
+		E1FC6BA22A06B64200078D99 /* MyMovieUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC6BA12A06B64200078D99 /* MyMovieUseCase.swift */; };
+		E1FC6BA42A06B6C600078D99 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC6BA32A06B6C600078D99 /* Reachability.swift */; };
 		E1FE7D7E2A0575650036605F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE7D7D2A0575650036605F /* TabBarViewController.swift */; };
 		E1FE7D832A0576690036605F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE7D812A0576690036605F /* HomeViewController.swift */; };
 		E1FE7D842A0576690036605F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1FE7D822A0576690036605F /* HomeViewController.xib */; };
@@ -119,6 +127,12 @@
 		E1FC6B8D2A06A3FE00078D99 /* UICollectionView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Ext.swift"; sourceTree = "<group>"; };
 		E1FC6B8F2A06AD2200078D99 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E1FC6B902A06AD2200078D99 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		E1FC6B932A06B1FE00078D99 /* LocaleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleDataSource.swift; sourceTree = "<group>"; };
+		E1FC6B9A2A06B33400078D99 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		E1FC6B9D2A06B5CD00078D99 /* MyMovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMovieViewModel.swift; sourceTree = "<group>"; };
+		E1FC6B9F2A06B61500078D99 /* ObjMovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjMovieModel.swift; sourceTree = "<group>"; };
+		E1FC6BA12A06B64200078D99 /* MyMovieUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMovieUseCase.swift; sourceTree = "<group>"; };
+		E1FC6BA32A06B6C600078D99 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		E1FE7D7D2A0575650036605F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E1FE7D812A0576690036605F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E1FE7D822A0576690036605F /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -131,7 +145,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1FC6B972A06B29100078D99 /* Realm in Frameworks */,
 				E117C7972A065B0D00B9EA69 /* Kingfisher in Frameworks */,
+				E1FC6B992A06B29100078D99 /* RealmSwift in Frameworks */,
 				E117C7942A065AF500B9EA69 /* Alamofire in Frameworks */,
 				E117C79F2A065B7000B9EA69 /* RxSwift in Frameworks */,
 				E117C79D2A065B7000B9EA69 /* RxCocoa in Frameworks */,
@@ -193,6 +209,7 @@
 				E117C7BB2A065F9600B9EA69 /* HomeUseCase.swift */,
 				E1FC6B762A06713B00078D99 /* DetailUseCase.swift */,
 				E1FC6B882A06A35500078D99 /* SearchUseCase.swift */,
+				E1FC6BA12A06B64200078D99 /* MyMovieUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -203,6 +220,7 @@
 				E117C7AE2A065E1300B9EA69 /* TMDB.swift */,
 				E1FC6B782A06716100078D99 /* Movie.swift */,
 				E1FC6B812A067AF500078D99 /* Reviews.swift */,
+				E1FC6B9F2A06B61500078D99 /* ObjMovieModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -260,6 +278,7 @@
 		E117C7B12A065E3700B9EA69 /* Locale */ = {
 			isa = PBXGroup;
 			children = (
+				E1FC6B932A06B1FE00078D99 /* LocaleDataSource.swift */,
 			);
 			path = Locale;
 			sourceTree = "<group>";
@@ -271,6 +290,8 @@
 				E117C7C42A06609600B9EA69 /* Extensions */,
 				E117C7B52A065E7B00B9EA69 /* Constants.swift */,
 				E1FC6B7A2A0671EF00078D99 /* Utils.swift */,
+				E1FC6B9A2A06B33400078D99 /* Utilities.swift */,
+				E1FC6BA32A06B6C600078D99 /* Reachability.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -409,6 +430,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E1FC6B9C2A06B5C200078D99 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1FC6B9D2A06B5CD00078D99 /* MyMovieViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E1FE7D782A056AFC0036605F /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,6 +497,7 @@
 		E1FE7D802A05765A0036605F /* MyMovie */ = {
 			isa = PBXGroup;
 			children = (
+				E1FC6B9C2A06B5C200078D99 /* ViewModel */,
 				E1FE7D852A05769F0036605F /* MyMovieViewController.swift */,
 				E1FE7D862A05769F0036605F /* MyMovieViewController.xib */,
 			);
@@ -496,6 +526,8 @@
 				E117C7992A065B4900B9EA69 /* netfox */,
 				E117C79C2A065B7000B9EA69 /* RxCocoa */,
 				E117C79E2A065B7000B9EA69 /* RxSwift */,
+				E1FC6B962A06B29100078D99 /* Realm */,
+				E1FC6B982A06B29100078D99 /* RealmSwift */,
 			);
 			productName = MovieDB;
 			productReference = E11E17EE2A056705004DEDC7 /* MovieDB.app */;
@@ -574,6 +606,7 @@
 				E117C7952A065B0D00B9EA69 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				E117C7982A065B4900B9EA69 /* XCRemoteSwiftPackageReference "netfox" */,
 				E117C79B2A065B7000B9EA69 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				E1FC6B952A06B29100078D99 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = E11E17EF2A056705004DEDC7 /* Products */;
 			projectDirPath = "";
@@ -626,6 +659,9 @@
 				E1FE7D832A0576690036605F /* HomeViewController.swift in Sources */,
 				E117C7902A0655B800B9EA69 /* CardMovieCollectionViewCell.swift in Sources */,
 				E1FC6B7B2A0671EF00078D99 /* Utils.swift in Sources */,
+				E1FC6BA02A06B61500078D99 /* ObjMovieModel.swift in Sources */,
+				E1FC6BA22A06B64200078D99 /* MyMovieUseCase.swift in Sources */,
+				E1FC6B9E2A06B5CD00078D99 /* MyMovieViewModel.swift in Sources */,
 				E1FC6B712A066CDE00078D99 /* DetailViewController.swift in Sources */,
 				E117C7CA2A0661B900B9EA69 /* AttributeImages.swift in Sources */,
 				E1FE7D7E2A0575650036605F /* TabBarViewController.swift in Sources */,
@@ -641,10 +677,12 @@
 				E117C7B32A065E4600B9EA69 /* RemoteDataSource.swift in Sources */,
 				E1FC6B8E2A06A3FE00078D99 /* UICollectionView+Ext.swift in Sources */,
 				E117C7B62A065E7B00B9EA69 /* Constants.swift in Sources */,
+				E1FC6B942A06B1FE00078D99 /* LocaleDataSource.swift in Sources */,
 				E117C7BE2A065FBB00B9EA69 /* Injection.swift in Sources */,
 				E1FC6B8C2A06A38700078D99 /* SearchViewModel.swift in Sources */,
 				E117C7C62A0660A000B9EA69 /* Collection+Ext.swift in Sources */,
 				E117C7AF2A065E1300B9EA69 /* TMDB.swift in Sources */,
+				E1FC6B9B2A06B33400078D99 /* Utilities.swift in Sources */,
 				E11E17FC2A056705004DEDC7 /* MovieDB.xcdatamodeld in Sources */,
 				E117C7C82A06619400B9EA69 /* UIImageView+Ext.swift in Sources */,
 				E117C7D12A06624D00B9EA69 /* UIViewController+Ext.swift in Sources */,
@@ -656,6 +694,7 @@
 				E117C7C12A065FFD00B9EA69 /* HomeViewModel.swift in Sources */,
 				E117C7CF2A06623300B9EA69 /* TTGSnackbar.swift in Sources */,
 				E117C7BC2A065F9600B9EA69 /* HomeUseCase.swift in Sources */,
+				E1FC6BA42A06B6C600078D99 /* Reachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1035,6 +1074,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		E1FC6B952A06B29100078D99 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.39.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1062,6 +1109,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E117C79B2A065B7000B9EA69 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		E1FC6B962A06B29100078D99 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1FC6B952A06B29100078D99 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		E1FC6B982A06B29100078D99 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1FC6B952A06B29100078D99 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 

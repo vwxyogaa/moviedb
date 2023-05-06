@@ -39,11 +39,13 @@ class TabBarViewController: UITabBarController {
     }
     
     private func createMyMovieTab() -> UIViewController {
-        let MyMovieController = MyMovieViewController()
-        MyMovieController.tabBarItem.title = "My Movie"
-        MyMovieController.tabBarItem.image = UIImage(systemName: "bookmark")
-        MyMovieController.tabBarItem.selectedImage = UIImage(systemName: "bookmark.fill")
-        return MyMovieController
+        let myMovieController = MyMovieViewController()
+        myMovieController.tabBarItem.title = "My Movie"
+        myMovieController.tabBarItem.image = UIImage(systemName: "bookmark")
+        myMovieController.tabBarItem.selectedImage = UIImage(systemName: "bookmark.fill")
+        let myMovieViewModel = MyMovieViewModel(myMovieUseCase: Injection().provideMyMovieUseCase())
+        myMovieController.viewModel = myMovieViewModel
+        return myMovieController
     }
 }
 
