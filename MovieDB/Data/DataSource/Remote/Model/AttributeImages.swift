@@ -13,3 +13,12 @@ extension TMDB.Results {
         }
     }
 }
+
+extension Reviews.Result.AuthorDetails {
+    var avatarPathImage: String? {
+        get {
+            guard let avatarPath else { return "" }
+            return Constants.baseImageUrl + Constants.imagePath.w500 + avatarPath
+        }
+    }
+}

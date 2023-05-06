@@ -149,6 +149,34 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case nowPlayingCollectionView:
+            let detailViewController = DetailViewController()
+            let detailViewModel = DetailViewModel(detailUseCase: Injection().provideDetailUseCase())
+            detailViewController.viewModel = detailViewModel
+            detailViewController.id = viewModel.nowPlaying(at: indexPath.row)?.id
+            detailViewController.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(detailViewController, animated: true)
+        case popularCollectionView:
+            let detailViewController = DetailViewController()
+            let detailViewModel = DetailViewModel(detailUseCase: Injection().provideDetailUseCase())
+            detailViewController.viewModel = detailViewModel
+            detailViewController.id = viewModel.popular(at: indexPath.row)?.id
+            detailViewController.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(detailViewController, animated: true)
+        case upcomingCollectionView:
+            let detailViewController = DetailViewController()
+            let detailViewModel = DetailViewModel(detailUseCase: Injection().provideDetailUseCase())
+            detailViewController.viewModel = detailViewModel
+            detailViewController.id = viewModel.upcoming(at: indexPath.row)?.id
+            detailViewController.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(detailViewController, animated: true)
+        default:
+            break
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
         case nowPlayingCollectionView:
