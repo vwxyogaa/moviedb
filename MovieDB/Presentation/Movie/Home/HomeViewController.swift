@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.tintColor = .white
+        refreshControl.tintColor = .black
         return refreshControl
     }()
     
@@ -62,6 +62,10 @@ class HomeViewController: UIViewController {
         
         viewModel.populars.drive(onNext: { [weak self] _ in
             self?.popularCollectionView.reloadData()
+        }).disposed(by: disposeBag)
+        
+        viewModel.upcomings.drive(onNext: { [weak self] _ in
+            self?.upcomingCollectionView.reloadData()
         }).disposed(by: disposeBag)
     }
     
@@ -114,7 +118,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         case popularCollectionView:
             return viewModel.popularCount
         case upcomingCollectionView:
-            return 5
+            return viewModel.upcomingCount
         default:
             return 0
         }
@@ -136,6 +140,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return cell
         case upcomingCollectionView:
             guard let cell = upcomingCollectionView.dequeueReusableCell(withReuseIdentifier: "CardMovieCollectionViewCell", for: indexPath) as? CardMovieCollectionViewCell else { return UICollectionViewCell() }
+            let upcoming = viewModel.upcoming(at: indexPath.row)
+            cell.configureContent(content: upcoming)
+            viewModel.loadMovieNextPage(index: indexPath.row)
             return cell
         default:
             return UICollectionViewCell()

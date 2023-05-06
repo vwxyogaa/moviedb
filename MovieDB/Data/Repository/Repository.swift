@@ -12,6 +12,7 @@ protocol RepositoryProtocol {
     // MARK: - Remote
     func getNowPlaying(page: Int) -> Observable<TMDB>
     func getPopular(page: Int) -> Observable<TMDB>
+    func getUpcoming(page: Int) -> Observable<TMDB>
 }
 
 final class Repository: NSObject {
@@ -35,5 +36,9 @@ extension Repository: RepositoryProtocol {
     
     func getPopular(page: Int) -> Observable<TMDB> {
         return remote.getPopular(page: page)
+    }
+    
+    func getUpcoming(page: Int) -> Observable<TMDB> {
+        return remote.getUpcoming(page: page)
     }
 }
