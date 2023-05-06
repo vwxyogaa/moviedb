@@ -96,10 +96,18 @@ class HomeViewController: UIViewController {
         upcomingCollectionView.delegate = self
     }
     
+    private func goToSearchPage() {
+        let searchViewController = SearchViewController()
+        let searchViewModel = SearchViewModel(searchUseCase: Injection().provideSearchUseCase())
+        searchViewController.viewModel = searchViewModel
+        searchViewController.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(searchViewController, animated: true)
+    }
+    
     // MARK: - Actions
     @objc
     private func searchButtonTapped() {
-        print("search button tapped")
+        goToSearchPage()
     }
     
     @objc
